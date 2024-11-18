@@ -23,7 +23,6 @@
   <ItemGroup>
     <ProjectReference Include="..\OnlineCourse.Busines\OnlineCourse.Busines.csproj" />
     <ProjectReference Include="..\OnlineCourse.Entity\OnlineCourse.Entity.csproj" />
-    <ProjectReference Include="..\OnlineCourse.Presentations\OnlineCourse.Presentations.csproj" />
     <ProjectReference Include="..\OnlineCourse.Repository\OnlineCourse.Repository.csproj" />
   </ItemGroup>
 

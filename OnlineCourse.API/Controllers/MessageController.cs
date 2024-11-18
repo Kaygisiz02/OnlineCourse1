@@ -31,8 +31,8 @@ namespace OnlineCourse.API.Controllers
             _messageService.UpdateMessage(messageDto);
             return Ok("Kurs Alanı Güncellendi");
         }
-        [HttpDelete]
-        public IActionResult DeleteMessage(int id)
+        [HttpDelete("{id}")]
+        public IActionResult RemoveMessage(int id)
         {
             _messageService.DeleteMessage(id);
             return Ok("Kurse Alanı Silindi");

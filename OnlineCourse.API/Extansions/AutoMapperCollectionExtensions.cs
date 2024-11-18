@@ -13,6 +13,9 @@
             services.AddAutoMapper(typeof(CourseCategoryMappingProfile));
             services.AddAutoMapper(typeof(ContactMappingProfile));
             services.AddAutoMapper(typeof(MessageMappingProfile));
+            services.AddAutoMapper(typeof(SocialMediaMappingProfile));
+            services.AddAutoMapper(typeof(SubscribeMappingProfile));
+            services.AddAutoMapper(typeof(TestimonialMappingProfile));
         }
     }
     

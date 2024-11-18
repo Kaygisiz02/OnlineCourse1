@@ -31,8 +31,8 @@
             _blogService.UpdateBlog(blog);
             return Ok("Blog Alanı Güncellendi");
         }
-        [HttpDelete]
-        public IActionResult Delete(int id)
+        [HttpDelete("{id}")]
+        public IActionResult Remove(int id)
         {
             _blogService.DeleteBlog(id);
             return Ok("Bol Alanı Silindi");

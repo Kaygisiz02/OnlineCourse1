@@ -29,8 +29,8 @@
              _categoryService.UpdateCategory(category);
             return Ok(category);
         }
-        [HttpDelete]
-        public IActionResult Delete(int id)
+        [HttpDelete("{id}")]
+        public IActionResult Remove(int id)
         {
             _categoryService.RemovCategoty(id);
             return Ok(id);

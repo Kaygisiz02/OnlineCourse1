@@ -6,5 +6,5 @@
         {
             CreateMap<MessageDto, Message>().ReverseMap();
         }
-    }
+    }  
 }

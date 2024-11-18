@@ -32,8 +32,8 @@
             _aboutService.UpdateAbout(about);
             return Ok("Hakkımızda alanı güncellendi");
         }
-        [HttpDelete]
-        public IActionResult Delete(int id)
+        [HttpDelete("{id}")]
+        public IActionResult Remove(int id)
         {
             _aboutService.DeleteAbout(id);
             return Ok("Hakkımda Alanı Silindi");

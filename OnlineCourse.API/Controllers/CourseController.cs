@@ -29,8 +29,8 @@
              _courseService.UpdateCourse(courseDto);
             return Ok("Kurs Alanı Güncellendi");
         }
-        [HttpDelete]
-        public IActionResult DeleteCourse(int id)
+        [HttpDelete("{id}")]
+        public IActionResult RemoveCourse(int id)
         {
             _courseService.DeleteCourse(id);
             return Ok("Kurse Alanı Silindi");

@@ -33,8 +33,8 @@ namespace OnlineCourse.API.Controllers
             _courseCategoryService.UpdateCourseCategory(courseCategory);
             return Ok("Kurs Kategorisi Güncellendi");
         }
-        [HttpDelete]
-        public IActionResult Delete(int id)
+        [HttpDelete("{id}")]
+        public IActionResult Remove(int id)
         {
             _courseCategoryService.RemoveCourseCategory(id);
             return Ok("Kurs Kategorisi Silindi");

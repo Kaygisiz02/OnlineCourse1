@@ -1,4 +1,6 @@
-﻿namespace OnlineCourse.API.Extansions
+﻿using OnlineCourse.Repository.Abstract;
+
+namespace OnlineCourse.API.Extansions
 {
     public static class RepositoryCollectionExtentions
     {
@@ -13,6 +15,9 @@
             services.AddScoped<ICourseCategoryRepository, CourseCategoryRepository>();
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IMessageRepository, MessageRepository>();
+            services.AddScoped<ISocialMediaRepository, SocialMediaRepository>();
+            services.AddScoped<ISubscribeRepository, SubscribeRepository>();
+            services.AddScoped<ITestimonialRepository, TestimonialRepository>();
        }
     }
 }

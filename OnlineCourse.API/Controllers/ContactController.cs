@@ -29,8 +29,8 @@
             _contactService.UpdateContact(contactDto);
             return Ok("Kurs Alanı Güncellendi");
         }
-        [HttpDelete]
-        public IActionResult DeleteContact(int id)
+        [HttpDelete("{id}")]
+        public IActionResult RemoveContact(int id)
         {
             _contactService.DeleteContact(id);
             return Ok("Kurse Alanı Silindi");

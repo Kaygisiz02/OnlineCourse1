@@ -13,6 +13,9 @@
             services.AddScoped<ICourseCategoryService, CourseCategoryService>();
             services.AddScoped<IContactService, ContactServices>();
             services.AddScoped<IMessageService, MessageServices>();
+            services.AddScoped<ISocialMediaService, SocialMediaServices>();
+            services.AddScoped<ISubscribeService, SubscribeServices>();
+            services.AddScoped<ITestimonialService, TestimonialServices>();
         }
     }
 }

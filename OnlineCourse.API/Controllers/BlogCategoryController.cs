@@ -30,8 +30,8 @@
             _blogCategoryService.UpdateBlogCategory(blogCategoryDto);
             return Ok("Blog Kategory Alanı Güncellendi");
         }
-        [HttpDelete]
-        public IActionResult Delete(int id)
+        [HttpDelete("{id}")]
+        public IActionResult Remove(int id)
         {
             _blogCategoryService.DeleteBlogCategory(id);
             return Ok("Blok Kategory Alanı Güncellendi");

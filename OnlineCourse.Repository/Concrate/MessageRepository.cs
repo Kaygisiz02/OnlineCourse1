@@ -5,5 +5,5 @@
         public MessageRepository(OnlineCourseDbContext dbContext) : base(dbContext)
         {
         }
-    }
+    }   
 }

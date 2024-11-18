@@ -18,7 +18,7 @@
             var bannerId= _bannerService.GetBannerById(id);
             return Ok(bannerId);
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
             _bannerService.DeleteBanner(id);
