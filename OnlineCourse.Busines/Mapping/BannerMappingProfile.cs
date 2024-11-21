@@ -4,7 +4,7 @@
     {
         public BannerMappingProfile()
         {
-            CreateMap<BannerDto, Banner>().ReverseMap();
+            CreateMap<Banner, BannerDto>().ReverseMap();
         }
     }
 }

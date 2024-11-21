@@ -33,7 +33,7 @@
         public IActionResult Delete(int id)
         {
             _categoryService.RemovCategoty(id);
-            return Ok(id);
+            return Ok("Kategory Alanı Silindi");
         }
     }
 }

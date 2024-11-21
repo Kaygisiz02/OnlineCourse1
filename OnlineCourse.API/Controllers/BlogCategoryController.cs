@@ -34,7 +34,7 @@
         public IActionResult Delete(int id)
         {
             _blogCategoryService.DeleteBlogCategory(id);
-            return Ok("Blok Kategory Alanı Güncellendi");
+            return Ok("Blok Kategory Alanı Silindi");
         }
     }
 }

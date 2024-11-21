@@ -35,7 +35,7 @@
             {
                 return false;
             }
-            _mapper.Map(courseCategory,updateCourseCategory);
+            _mapper.Map(updateCourseCategory, courseCategory);
             return _courseCategoryRepository.Update(updateCourseCategory);
         }
     }

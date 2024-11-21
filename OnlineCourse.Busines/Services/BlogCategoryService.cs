@@ -1,7 +1,4 @@
-﻿using AutoMapper;
-using OnlineCourse.Entity;
-using OnlineCourse.Repository;
-namespace OnlineCourse.Busines
+﻿namespace OnlineCourse.Busines
 {
     public class BlogCategoryService(IBlogCategoryRepository blogCategoryRepository,IMapper mapper) : IBlogCategoryService
     {
@@ -38,7 +35,7 @@ namespace OnlineCourse.Busines
             {
                 return false;
             }
-            _mapper.Map(blogCategory, update);
+            _mapper.Map(update,blogCategory);
             return _blogCategoryRepository.Update(update);
         }
     }

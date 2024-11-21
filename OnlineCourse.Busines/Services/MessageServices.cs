@@ -35,7 +35,7 @@
             {
                 return false;
             }
-            _mapper.Map(messageDto, messageUpdate);
+            _mapper.Map(messageUpdate, messageDto );
             return _messageRepository.Update(messageUpdate);
         }
     }

@@ -4,7 +4,7 @@
     {
         public BlogCategoryMappingProfile()
         {
-            CreateMap<BlogCategoryDto, BlogCategory>().ReverseMap();
+            CreateMap<BlogCategory, BlogCategoryDto>().ReverseMap();
         }
     }
 }

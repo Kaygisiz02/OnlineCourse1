@@ -4,7 +4,7 @@
     {
         public ContactMappingProfile()
         {
-           CreateMap<ContactDto, Contact>().ReverseMap();
+           CreateMap<Contact, ContactDto>().ReverseMap();
         }
     }
 }

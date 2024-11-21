@@ -4,7 +4,7 @@
     {
         public MessageMappingProfile()
         {
-            CreateMap<MessageDto, Message>().ReverseMap();
+            CreateMap<Message, MessageDto>().ReverseMap();
         }
     }
 }

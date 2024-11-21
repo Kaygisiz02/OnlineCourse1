@@ -35,7 +35,7 @@
             {
                 return false;
             }
-            _mapper.Map(courseDto, courseUpdate);
+            _mapper.Map(courseUpdate, courseDto);
             return _courseRepository.Update(courseUpdate);
         }
     }

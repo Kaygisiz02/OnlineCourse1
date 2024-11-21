@@ -4,7 +4,7 @@
     {
         public AboutMappingProfile()
         {
-           CreateMap<AboutDto, About>().ReverseMap();
+           CreateMap<About, AboutDto>().ReverseMap();
         }
     }   
 }

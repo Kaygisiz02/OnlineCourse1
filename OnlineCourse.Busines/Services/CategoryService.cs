@@ -36,7 +36,7 @@
             {
                 return false; 
             }
-            _mapper.Map(category,categoryUpdate);
+            _mapper.Map(categoryUpdate,category);
             return _categoryRepository.Update(categoryUpdate);
         }
     }

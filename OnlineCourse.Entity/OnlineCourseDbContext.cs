@@ -20,4 +20,5 @@ namespace OnlineCourse.Entity
         public DbSet<Subscribe> Subscribes { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
     }
+
 }

@@ -35,7 +35,7 @@
             {
                 return false;
             }
-            _mapper.Map(blogDto, blogUpdate);
+            _mapper.Map(blogUpdate, blogDto);
             return _blogRepository.Update(blogUpdate);
         }
     }

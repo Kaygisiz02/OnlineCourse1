@@ -1,4 +1,4 @@
-﻿namespace OnlineCourse.Busines
+﻿namespace OnlineCourse.API.Extansions
 {
     public static class ServiceCollectionExtensions
     {

@@ -35,7 +35,7 @@
             {
                 return false;
             }
-            _mapper.Map(contactDto, contactUpdate);
+            _mapper.Map(contactUpdate, contactDto);
             return _contactRepository.Update(contactUpdate);
         }
     }

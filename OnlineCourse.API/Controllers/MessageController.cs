@@ -20,7 +20,7 @@ namespace OnlineCourse.API.Controllers
             return Ok(getById);
         }
         [HttpPost]
-        public IActionResult AddCourse(MessageDto mesageDto)
+        public IActionResult AddMessage(MessageDto mesageDto)
         {
             var messageAdded = _messageService.AddMessage(mesageDto);
             return Ok(messageAdded);
@@ -35,7 +35,7 @@ namespace OnlineCourse.API.Controllers
         public IActionResult DeleteMessage(int id)
         {
             _messageService.DeleteMessage(id);
-            return Ok("Kurse Alanı Silindi");
+            return Ok("Mesaj Alanı Silindi");
         }
     }
 }

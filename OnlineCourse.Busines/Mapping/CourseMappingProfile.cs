@@ -4,7 +4,7 @@
     {
         public CourseMappingProfile()
         {
-            CreateMap<CourseDto, Course>().ReverseMap();
+            CreateMap<Course, CourseDto>().ReverseMap();
         }
     }
 }

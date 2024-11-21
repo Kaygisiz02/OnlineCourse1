@@ -4,7 +4,7 @@
     {
         public BlogMappingProfile()
         {
-            CreateMap<BlogDto,Blog>().ReverseMap();
+            CreateMap<Blog, BlogDto>().ReverseMap();
         }
     }
 }

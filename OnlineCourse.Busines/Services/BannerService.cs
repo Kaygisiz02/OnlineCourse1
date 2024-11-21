@@ -1,7 +1,4 @@
-﻿using AutoMapper;
-using OnlineCourse.Entity;
-using OnlineCourse.Repository;
-namespace OnlineCourse.Busines
+﻿namespace OnlineCourse.Busines
 {
     public class BannerService(IBannerRepository bannerRepository, IMapper mapper) : IBannerService
     {
@@ -37,7 +34,7 @@ namespace OnlineCourse.Busines
             {
                 return false;
             }
-            _mapper.Map(bannerDto, banner);
+            _mapper.Map(banner, bannerDto);
             return _bannerRepository.Update(banner);
 
         }

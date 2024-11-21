@@ -1,9 +1,4 @@
-﻿using AutoMapper;
-using OnlineCourse.Entity;
-
-
-
-namespace OnlineCourse.Busines
+﻿namespace OnlineCourse.Busines
 {
     public class AboutService(IAboutRepository aboutRepository,IMapper mapper) : IAboutService
     {
@@ -44,7 +39,7 @@ namespace OnlineCourse.Busines
             {
                 return false;
             }
-            _mapper.Map(aboutDto, about);
+            _mapper.Map(about, aboutDto);
             return _aboutRepository.Update(about);
         }
     }
