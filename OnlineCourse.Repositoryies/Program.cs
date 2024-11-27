@@ -1,8 +1,19 @@
+using Microsoft.EntityFrameworkCore;
+using OnlineCourse.Entity;
+using OnlineCourse.Repositoryies;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAutoMapperCustom();
+builder.Services.AddCustomRepository();
+builder.Services.AddCustomServices();
 
+builder.Services.AddDbContext<OnlineCourseDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

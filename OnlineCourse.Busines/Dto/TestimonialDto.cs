@@ -2,7 +2,6 @@
 {
     public class TestimonialDto
     {
-
         public int TestimonialId { get; set; }
         public string TestimonialName { get; set; }
         public string ImageUrl { get; set; }

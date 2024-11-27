@@ -7,7 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Shared\Components\LeftSideBar\" />
+    <Folder Include="Views\Shared\Components\Foooter\" />
+    <Folder Include="Views\Shared\Components\TopBar\" />
+    <Folder Include="wwwroot\Admin\" />
+    <Folder Include="wwwroot\UI\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineCourse.API\OnlineCourse.API.csproj" />
+    <ProjectReference Include="..\OnlineCourse.Busines\OnlineCourse.Busines.csproj" />
+    <ProjectReference Include="..\OnlineCourse.Entity\OnlineCourse.Entity.csproj" />
+    <ProjectReference Include="..\OnlineCourse.Repository\OnlineCourse.Repository.csproj" />
   </ItemGroup>
 
 </Project>
