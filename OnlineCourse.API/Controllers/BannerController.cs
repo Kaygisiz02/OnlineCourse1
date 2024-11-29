@@ -16,12 +16,20 @@
         public IActionResult Get(int id)
         {
             var bannerId= _bannerService.GetBannerById(id);
+            if (bannerId==null)
+            {
+                return NotFound("Banner alanı bulunamadı");
+            }
             return Ok(bannerId);
         }
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
-            _bannerService.DeleteBanner(id);
+            var remove = _bannerService.DeleteBanner(id);
+            if (!remove)
+            {
+                return NotFound("Banner alanı silinemedi veya bulunamadı");
+            }
             return Ok("Banner alanı silindi");
         }
         [HttpPost]
@@ -34,8 +42,12 @@
         [HttpPut]
         public IActionResult Update(BannerDto banner)
         {
-            var bannerUpdate = _mapper.Map<BannerDto>(banner);
-            _bannerService.UpdateBanner(bannerUpdate);
+
+            var bannerUpdate = _bannerService.UpdateBanner(banner);
+            if (!bannerUpdate)
+            {
+                return BadRequest("Banner alanı silinemedi veya bulunamadı");
+            }
             return Ok("Banner alanı güncellendi");
         }
 

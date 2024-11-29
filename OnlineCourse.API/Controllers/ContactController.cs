@@ -1,4 +1,6 @@
-﻿namespace OnlineCourse.API.Controllers
+﻿using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
+namespace OnlineCourse.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -15,6 +17,10 @@
         public IActionResult Get(int id)
         {
             var getById = _contactService.GetContactById(id);
+            if (getById == null)
+            {
+                return NotFound("İletişim Alanı Bulunamadı");
+            }
             return Ok(getById);
         }
         [HttpPost]
@@ -26,14 +32,22 @@
         [HttpPut]
         public IActionResult UpdateCountact(ContactDto contactDto)
         {
-            _contactService.UpdateContact(contactDto);
-            return Ok("Kurs Alanı Güncellendi");
+            var update=_contactService.UpdateContact(contactDto);
+            if (!update)
+            {
+                return BadRequest("İletişim Alanı güncellenemedi");
+            }
+            return Ok("İletişim Alanı Güncellendi");
         }
         [HttpDelete("{id}")]
         public IActionResult RemoveContact(int id)
         {
-            _contactService.DeleteContact(id);
-            return Ok("Kurse Alanı Silindi");
+            var remove=_contactService.DeleteContact(id);
+            if (!remove)
+            {
+                return NotFound("İletişim Alanı Silinemedi veya Bulunamadı");
+            }
+            return Ok("İletişim Alanı Silindi");
         }
     }
 }

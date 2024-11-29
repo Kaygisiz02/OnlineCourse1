@@ -16,8 +16,12 @@
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var subscriber = _subscribeService.GetSubscribeById(id);
-            return Ok(subscriber);
+            var getById = _subscribeService.GetSubscribeById(id);
+            if (getById == null)
+            {
+                return NotFound("Abonelik Alanı Bulunamadı");
+            }
+            return Ok(getById);
         }
 
         [HttpPost]
@@ -30,14 +34,22 @@
         [HttpPut]
         public IActionResult Update(SubscribeDto subscribeDto)
         {
-            _subscribeService.UpdateSubscribe(subscribeDto);
+            var update=_subscribeService.UpdateSubscribe(subscribeDto);
+            if (!update)
+            {
+                return BadRequest("Abonelik bilgisi güncellenemedi");
+            }
             return Ok("Abonelik Bilgisi Güncellendi");
         }
 
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
-            _subscribeService.DeleteSubscribe(id);
+            var remove=_subscribeService.DeleteSubscribe(id);
+            if (!remove)
+            {
+                return NotFound("Abonelik Alanı Silinemdi veya Bulunamadı");
+            }
             return Ok("Abonelik Bilgisi Silindi");
         }
     }

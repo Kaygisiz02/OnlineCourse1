@@ -1,14 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using OnlineCourse.API.Extansions;
-using OnlineCourse.Busines;
-using OnlineCourse.Entity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddAutoMapperCustom();
 builder.Services.AddCustomRepository();
 builder.Services.AddCustomServices();
-
 builder.Services.AddDbContext<OnlineCourseDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
@@ -26,7 +23,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

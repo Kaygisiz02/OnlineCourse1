@@ -1,4 +1,6 @@
-﻿namespace OnlineCourse.API.Controllers
+﻿using OnlineCourse.Entity;
+
+namespace OnlineCourse.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,6 +18,10 @@
         public IActionResult Get(int id)
         {
             var getId=_blogCategoryService.GetBlogCategoryById(id);
+            if (getId == null)
+            {
+                return NotFound("Blog Kategory alanı bulunamadı");
+            }
             return Ok(getId);
         }
         [HttpPost]
@@ -27,14 +33,22 @@
         [HttpPut]
         public IActionResult Update(BlogCategoryDto blogCategoryDto)
         {
-            _blogCategoryService.UpdateBlogCategory(blogCategoryDto);
+            var update=_blogCategoryService.UpdateBlogCategory(blogCategoryDto);
+            if (!update)
+            {
+                return BadRequest("Blog Kategory alanı silinemedi veya bulunamadı");
+            }
             return Ok("Blog Kategory Alanı Güncellendi");
         }
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
-            _blogCategoryService.DeleteBlogCategory(id);
-            return Ok("Blok Kategory Alanı Güncellendi");
+            var remove=_blogCategoryService.DeleteBlogCategory(id);
+            if (!remove)
+            {
+                return NotFound("Blok Kategory alanı silinemedi veya bulunamadı");
+            }
+            return Ok("Blok Kategory Alanı Silindi");
         }
     }
 }

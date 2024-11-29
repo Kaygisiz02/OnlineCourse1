@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace OnlineCourse.API.Controllers
 {
@@ -19,6 +20,10 @@ namespace OnlineCourse.API.Controllers
         public IActionResult Get(int id)
         {
             var getById=_courseCategoryService.GetCourseCategoryById(id);
+            if (getById == null)
+            {
+                return NotFound("Kurs Kategorisi Bulunamadı");
+            }
             return Ok(getById);
         }
         [HttpPost]
@@ -30,13 +35,21 @@ namespace OnlineCourse.API.Controllers
         [HttpPut]
         public IActionResult Update(CourseCategoryDto courseCategory)
         {
-            _courseCategoryService.UpdateCourseCategory(courseCategory);
+            var update=_courseCategoryService.UpdateCourseCategory(courseCategory);
+            if (!update)
+            {
+                return BadRequest("Kurs Kategorisi güncellenemedi");
+            }
             return Ok("Kurs Kategorisi Güncellendi");
         }
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
-            _courseCategoryService.RemoveCourseCategory(id);
+            var remove=_courseCategoryService.RemoveCourseCategory(id);
+            if (!remove)
+            {
+                return NotFound("Kurs Kategorisi Silinemedi veya Bulunamadı");
+            }
             return Ok("Kurs Kategorisi Silindi");
         }
         

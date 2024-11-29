@@ -15,24 +15,37 @@
         public IActionResult Get(int id)
         {
             var getById= _courseService.GetCourseById(id);
+            if (getById == null)
+            {
+                return NotFound("Kurs Alanı Bulunamadı");
+            }
             return Ok(getById);
         }
         [HttpPost]
         public IActionResult AddCourse(CourseDto courseDto)
         {
             var courseAdded = _courseService.AddCourse(courseDto);
+
             return Ok(courseAdded);
         }
         [HttpPut]
         public IActionResult UpdateCourse(CourseDto courseDto)
         {
-             _courseService.UpdateCourse(courseDto);
+             var update=_courseService.UpdateCourse(courseDto);
+            if (!update)
+            {
+                return BadRequest("Kurs Alanı güncellenemedi");
+            }
             return Ok("Kurs Alanı Güncellendi");
         }
         [HttpDelete("{id}")]
         public IActionResult RemoveCourse(int id)
         {
-            _courseService.DeleteCourse(id);
+            var remove=_courseService.DeleteCourse(id);
+            if (!remove)
+            {
+                return NotFound("Kurs Alanı Silinemedi veya Bulunamadı");
+            }
             return Ok("Kurse Alanı Silindi");
         }
     }

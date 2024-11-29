@@ -16,6 +16,10 @@
         public IActionResult Get(int id)
         { 
             var blogId=_blogService.GetBlog(id);
+            if (blogId == null)
+            {
+                return NotFound("Blog Alanı Bulunamadı");
+            }
             return Ok(blogId);
         }
         [HttpPost]
@@ -28,13 +32,21 @@
         [HttpPut]
         public IActionResult Update(BlogDto blog)
         {
-            _blogService.UpdateBlog(blog);
+            var blogUpdate=_blogService.UpdateBlog(blog);
+            if (!blogUpdate)
+            {
+                return BadRequest("Blog Alanı Güncellenemedi");
+            }
             return Ok("Blog Alanı Güncellendi");
         }
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
-            _blogService.DeleteBlog(id);
+            var remove=_blogService.DeleteBlog(id);
+            if (!remove)
+            {
+                return NotFound("Blog Alanı Silinemedi veya Bulunamadı");
+            }
             return Ok("Bol Alanı Silindi");
 
         }

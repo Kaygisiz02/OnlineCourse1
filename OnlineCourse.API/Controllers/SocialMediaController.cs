@@ -16,8 +16,12 @@
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var socialMedia = _socialMediaService.GetSocialMediaById(id);
-            return Ok(socialMedia);
+            var getById = _socialMediaService.GetSocialMediaById(id);
+            if (getById == null)
+            {
+                return NotFound("Social Medya Alanı Bulunamadı");
+            }
+            return Ok(getById);
         }
 
         [HttpPost]
@@ -30,14 +34,22 @@
         [HttpPut]
         public IActionResult Update(SocialMediaDto socialMediaDto)
         {
-            _socialMediaService.UpdateSocialMedia(socialMediaDto);
+            var update=_socialMediaService.UpdateSocialMedia(socialMediaDto);
+            if (!update)
+            {
+                return BadRequest("Sosyal Meya Alanı Güncellenemedi");
+            }
             return Ok("Sosyal Medya Alanı Güncellendi");
         }
 
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
-            _socialMediaService.DeleteSocialMedia(id);
+            var remove=_socialMediaService.DeleteSocialMedia(id);
+            if (!remove)
+            {
+                return NotFound("Sosyal Medya Alanı Silinemedi veya Bulunamadı");
+            }
             return Ok("Sosyal Medya Alanı Silindi");
         }
     }

@@ -15,6 +15,10 @@
         public ActionResult Get(int id)
         {
             var getById=_categoryService.GetCategoryById(id);
+            if (getById == null)
+            {
+                return NotFound("Categori Alanı Bulunamadı");
+            }
             return Ok(getById);
         }
         [HttpPost]
@@ -26,14 +30,22 @@
         [HttpPut]
         public IActionResult Update(CategoryDto category)
         {
-             _categoryService.UpdateCategory(category);
+            var update=_categoryService.UpdateCategory(category);
+            if (!update)
+            {
+                return BadRequest("Categori Alanı güncellenemedi");
+            }
             return Ok(category);
         }
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
-            _categoryService.RemovCategoty(id);
-            return Ok(id);
+            var remove=_categoryService.RemovCategoty(id);
+            if (!remove)
+            {
+                return NotFound("Categori Alanı Silinemedi veya Bulunamadı");
+            }
+            return Ok("Categori Alanı Silindi");
         }
     }
 }

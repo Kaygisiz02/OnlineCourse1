@@ -17,6 +17,10 @@ namespace OnlineCourse.API.Controllers
         public IActionResult Get(int id)
         {
             var getById = _messageService.GetMessageById(id);
+            if (getById == null)
+            {
+                return NotFound("Mesaj Alanı Bulunamadı");
+            }
             return Ok(getById);
         }
         [HttpPost]
@@ -28,14 +32,22 @@ namespace OnlineCourse.API.Controllers
         [HttpPut]
         public IActionResult UpdateMessage(MessageDto messageDto)
         {
-            _messageService.UpdateMessage(messageDto);
-            return Ok("Kurs Alanı Güncellendi");
+            var update=_messageService.UpdateMessage(messageDto);
+            if (!update)
+            {
+                return BadRequest("Mesaj Alanı güncellenemedi");
+            }
+            return Ok("Mesaj Alanı Güncellendi");
         }
         [HttpDelete("{id}")]
         public IActionResult RemoveMessage(int id)
         {
-            _messageService.DeleteMessage(id);
-            return Ok("Kurse Alanı Silindi");
+            var remove=_messageService.DeleteMessage(id);
+            if (!remove)
+            {
+                return NotFound("Mesaj Alanı Silinemedi veya Bulunamadı");
+            }
+            return Ok("Mesaj Alanı Silindi");
         }
     }
 }

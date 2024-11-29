@@ -1,4 +1,6 @@
-﻿namespace OnlineCourse.API.Controllers
+﻿using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
+namespace OnlineCourse.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,6 +18,10 @@
         public IActionResult Get(int id)
         {
             var aboutId= _aboutService.GetAboutById(id);
+            if (aboutId == null)
+            {
+                return NotFound("Hakkında alanı bulunamadı");
+            }
             return Ok(aboutId);
         }
    
@@ -29,13 +35,21 @@
         [HttpPut]
         public IActionResult Update(AboutDto about)
         {
-            _aboutService.UpdateAbout(about);
+            var updated = _aboutService.UpdateAbout(about);
+            if (!updated)
+            {
+                return BadRequest("Hakkımızda alanı güncellenemedi");
+            }
             return Ok("Hakkımızda alanı güncellendi");
         }
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
-            _aboutService.DeleteAbout(id);
+            var deleted = _aboutService.DeleteAbout(id);
+            if (!deleted)
+            {
+                return NotFound("Hakkımda alanı silinemedi veya bulunamadı");
+            }
             return Ok("Hakkımda Alanı Silindi");
         }
     }
