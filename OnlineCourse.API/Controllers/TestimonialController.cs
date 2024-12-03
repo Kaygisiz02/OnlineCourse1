@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace OnlineCourse.API.Controllers
+﻿namespace OnlineCourse.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -51,7 +48,7 @@ namespace OnlineCourse.API.Controllers
             var remove=_testimonialService.DeleteTestimonial(id);
             if (!remove)
             {
-                return NotFound("Referans Alanı Silinemedi veya Bulunamadı")
+                return NotFound("Referans Alanı Silinemedi veya Bulunamadı");
             }
             return Ok("Referans Bilgisi Silindi");
         }
