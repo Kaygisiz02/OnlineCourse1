@@ -1,4 +1,4 @@
-﻿namespace OnlineCourse.Busines.Mapping
+﻿namespace OnlineCourse.Busines
 {
     public class BannerMappingProfile:Profile
     {

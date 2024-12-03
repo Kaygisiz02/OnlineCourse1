@@ -37,7 +37,7 @@
         {
             var bannerAdded=_mapper.Map<BannerDto>(banner);
                 _bannerService.AddBanner(bannerAdded);
-            return Ok(bannerAdded);
+            return Ok("Yeni Banner Alanı Başarılı Bir Şekilde Eklendi");
         }
         [HttpPut]
         public IActionResult Update(BannerDto banner)
@@ -48,7 +48,7 @@
             {
                 return BadRequest("Banner alanı silinemedi veya bulunamadı");
             }
-            return Ok("Banner alanı güncellendi");
+            return Ok("Banner Alanı Başarılı Bir Şekilde Güncellendi");
         }
 
     }

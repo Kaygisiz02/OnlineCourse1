@@ -1,15 +1,13 @@
-﻿using Azure;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using OnlineCourse.Busines;
 
 namespace OnlineCourse.Presentations.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("[area]/[controller]/[action]/{id?}")]
-    public class AboutController(IAboutService aboutService) : Controller
+    public class AboutController() : Controller
     {
         private readonly HttpClient _client = HttpClientInstance.CreateClient();
-        private readonly IAboutService _aboutService=aboutService;
         public async Task<IActionResult> Index()
         {
             var value = await _client.GetFromJsonAsync<List<AboutDto>>("abouts");
@@ -30,11 +28,6 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
              await _client.PostAsJsonAsync("abouts/", aboutDto);
             return RedirectToAction(nameof(Index));
             
-        }
-        public async Task<IActionResult> UpdateAbots(int id)
-        {
-            var values=await _client.GetFromJsonAsync<AboutDto>($"abouts/{id}");
-            return View(values);
         }
         public async Task<IActionResult> UpdateAbout(int id)
         {

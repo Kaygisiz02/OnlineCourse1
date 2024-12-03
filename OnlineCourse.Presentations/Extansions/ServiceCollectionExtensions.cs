@@ -1,5 +1,5 @@
 ﻿using OnlineCourse.Busines;
-namespace OnlineCourse.Presentations.Extansions
+namespace OnlineCourse.Presentations
 {
     public static class ServiceCollectionExtensions
     {

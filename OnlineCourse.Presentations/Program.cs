@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using OnlineCourse.Entity;
+using OnlineCourse.Presentations;
 using OnlineCourse.Presentations.Extansions;
 
 var builder = WebApplication.CreateBuilder(args);

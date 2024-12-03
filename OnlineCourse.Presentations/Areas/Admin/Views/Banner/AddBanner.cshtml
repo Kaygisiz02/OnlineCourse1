@@ -1,0 +1,18 @@
+﻿@model BannerDto
+@{
+    ViewData["Title"] = "AddBanner";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Açıklama</label>
+    <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+    <label>Resim Url</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <br /> 
+    <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>
+
