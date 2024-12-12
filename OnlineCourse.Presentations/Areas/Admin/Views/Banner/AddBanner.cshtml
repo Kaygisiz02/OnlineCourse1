@@ -1,6 +1,6 @@
 ﻿@model BannerDto
 @{
-    ViewData["Title"] = "AddBanner";
+    ViewData["Title"] = "Yeni Banner Ekle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -14,5 +14,6 @@
     <input type="text" asp-for="Title" class="form-control" />
     <br />
     <button class="btn btn-outline-primary">Kaydet</button>
+    <a asp-action="Index" asp-controller="Banner" asp-area="Admin" class="btn btn-secondary">İptal</a>
 </form>
 

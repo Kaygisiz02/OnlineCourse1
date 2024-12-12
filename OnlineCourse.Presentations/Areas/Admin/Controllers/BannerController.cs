@@ -24,13 +24,30 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
         }
         public async Task<IActionResult> RemoveBanner(int id)
         {
-            await _client.DeleteAsync($"baner/{id}");
-            return RedirectToAction(nameof(Index));
+            //await _client.DeleteAsync($"baner/{id}");
+            //return RedirectToAction(nameof(Index));
+            try
+            {
+                var response = await _client.DeleteAsync($"banner/{id}");
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                ModelState.AddModelError(string.Empty, "Silme işlemi başarısız.");
+            }
+            catch (Exception ex)
+            {
+                // Loglama yapılabilir
+                ModelState.AddModelError(string.Empty, $"Hata: {ex.Message}");
+            }
+
+            return View("Error"); // Özel bir hata görünümü varsa yönlendirme yapılabilir.
         }
         public IActionResult AddBanner()
         {
             return View();
         }
+        [HttpPost]
         public async Task<IActionResult> AddBanner(BannerDto banner)
         {
             await _client.PostAsJsonAsync("banner", banner);
@@ -39,14 +56,49 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
         }
         public async Task<IActionResult> UpdateBanner(int id)
         {
-            var values =await _client.GetFromJsonAsync<BannerDto>($"banner/{id}");
-            return View(values);
+            //var values =await _client.GetFromJsonAsync<BannerDto>($"banner/{id}");
+            //return View(values);
+            try
+            {
+                var values = await _client.GetFromJsonAsync<BannerDto>($"banner/{id}");
+                if (values == null)
+                {
+                    return NotFound("Güncellenecek veri bulunamadı.");
+                }
+                return View(values);
+            }
+            catch (Exception ex)
+            {
+                // Loglama yapılabilir
+                ModelState.AddModelError(string.Empty, $"Hata: {ex.Message}");
+            }
+
+            return View("Error");
         }
         [HttpPost]
         public async Task<IActionResult> UpdateBanner(BannerDto bannerDto)
         {
-            await _client.PutAsJsonAsync<BannerDto>("banner",bannerDto);
-            return RedirectToAction(nameof(Index));
+            //await _client.PutAsJsonAsync<BannerDto>("banner",bannerDto);
+            //return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var response = await _client.PutAsJsonAsync("banner", bannerDto);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+                    ModelState.AddModelError(string.Empty, "Güncelleme işlemi başarısız.");
+                }
+                catch (Exception ex)
+                {
+                    // Loglama yapılabilir
+                    ModelState.AddModelError(string.Empty, $"Hata: {ex.Message}");
+                }
+            }
+
+            return View(bannerDto);
         }
     }
 }

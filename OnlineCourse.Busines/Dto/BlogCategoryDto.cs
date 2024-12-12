@@ -1,6 +1,4 @@
-﻿using OnlineCourse.Entity;
-
-namespace OnlineCourse.Busines
+﻿namespace OnlineCourse.Busines
 {
     public class BlogCategoryDto
     {
