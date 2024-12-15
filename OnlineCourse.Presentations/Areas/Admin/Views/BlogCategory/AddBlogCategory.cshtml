@@ -1,16 +1,20 @@
 ﻿@model BlogCategoryDto
 @{
-    ViewData["Title"] = "Yeni Blog Kategori Ekle";
+    ViewData["Title"] = "Yeni Blog Kategorisi Ekleme Sayfası";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 <form method="post">
-    <label>Kategori Adı</label>
-    <textarea asp-for="BlogCategoryName" class="form-control" rows="5"></textarea>
-    <label>Description</label>
+    <label>Blog Kategorisi Adı</label>
+    <input type="text" asp-for="BlogCategoryName" class="form-control" />
+    <span asp-validation-for="BlogCategoryName" class="text-danger"></span>
+    <br />
+    <label>Blog Kategorisi Açıklaması</label>
     <input type="text" asp-for="Description" class="form-control" />
+    <span asp-validation-for="Description" class="text-danger"></span>
     <br />
     <button class="btn btn-outline-primary">Kaydet</button>
-    <a asp-action="Index" asp-controller="Banner" asp-area="Admin" class="btn btn-secondary">İptal</a>
+    <a asp-action="Index" asp-controller="BlogCategory" asp-area="Admin" class="btn btn-secondary">İptal</a>
 </form>
+
+
 

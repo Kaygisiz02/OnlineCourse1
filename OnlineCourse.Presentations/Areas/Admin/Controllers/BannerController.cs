@@ -24,8 +24,6 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
         }
         public async Task<IActionResult> RemoveBanner(int id)
         {
-            //await _client.DeleteAsync($"baner/{id}");
-            //return RedirectToAction(nameof(Index));
             try
             {
                 var response = await _client.DeleteAsync($"banner/{id}");
@@ -56,8 +54,6 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
         }
         public async Task<IActionResult> UpdateBanner(int id)
         {
-            //var values =await _client.GetFromJsonAsync<BannerDto>($"banner/{id}");
-            //return View(values);
             try
             {
                 var values = await _client.GetFromJsonAsync<BannerDto>($"banner/{id}");
@@ -78,8 +74,6 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateBanner(BannerDto bannerDto)
         {
-            //await _client.PutAsJsonAsync<BannerDto>("banner",bannerDto);
-            //return RedirectToAction(nameof(Index));
             if (ModelState.IsValid)
             {
                 try
