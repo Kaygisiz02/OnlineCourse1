@@ -2,5 +2,6 @@
 {
     public interface IBlogRepository:IBaseRepository<Blog>
     {
+        List<Blog> GetBlogWithCategories();
     }
 }

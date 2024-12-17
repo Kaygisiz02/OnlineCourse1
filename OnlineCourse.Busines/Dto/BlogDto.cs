@@ -1,6 +1,4 @@
-﻿using OnlineCourse.Entity;
-
-namespace OnlineCourse.Busines
+﻿namespace OnlineCourse.Busines
 {
     public class BlogDto
     {
@@ -8,7 +6,8 @@ namespace OnlineCourse.Busines
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
-        public DateTime BlogCreatedDate { get; set; }
+        public DateTime BlogCreatedDate { get; set; }= DateTime.Now;
         public int BlogCategoryId { get; set; }
+        public  BlogCategoryDto? BlogCategory { get; set; }
     }
 }

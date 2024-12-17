@@ -28,6 +28,12 @@
             return _mapper.Map<BlogDto>(BlogId);
         }
 
+        public List<BlogDto> GetBlogWithCategories()
+        {
+            var blogGet = _blogRepository.GetBlogWithCategories();
+            return _mapper.Map<List<BlogDto>>(blogGet);
+        }
+
         public bool UpdateBlog(BlogDto blogDto)
         {
             var blogUpdate = _blogRepository.Get(blogDto.BlogId);
