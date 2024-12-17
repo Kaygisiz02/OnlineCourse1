@@ -1,0 +1,23 @@
+﻿@model CourseCategoryDto
+@{
+    ViewData["Title"] = "AddCourseCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Kurs Kategori Adı</label>
+    <input type="text" asp-for="CourseCategoryName" class="form-control" />
+    <br />  
+    <label>Açıklama</label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <br />
+    <label>İkon</label>
+    <input type="text" asp-for="Icon" class="form-control" />
+    <br />
+    <label>Ana Sayfada Gösterilsin</label>
+    <input type="checkbox" asp-for="IsShown" class="form-check" />
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+    <a asp-action="Index" asp-controller="CourseCategory" asp-area="Admin" class="btn btn-secondary">İptal</a>
+</form>
+

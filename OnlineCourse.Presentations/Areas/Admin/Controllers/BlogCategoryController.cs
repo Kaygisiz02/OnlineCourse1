@@ -64,33 +64,15 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            try
-            {
                 var blogCategoryList = await _client.GetFromJsonAsync<List<BlogCategoryDto>>("blogcategory");
                 return View(blogCategoryList);
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError(string.Empty, $"Hata: {ex.Message}");
-                return View("Error");
-            }
+            
         }
 
         public async Task<IActionResult> RemoveBlogCategory(int id)
         {
-            try
-            {
-                var response = await _client.DeleteAsync($"blogcategory/{id}");
-                if (!response.IsSuccessStatusCode)
-                {
-                    ModelState.AddModelError(string.Empty, "Silme işlemi başarısız oldu.");
-                }
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError(string.Empty, $"Hata: {ex.Message}");
-            }
 
+            await _client.DeleteAsync($"blogcategory/{id}");
             return RedirectToAction(nameof(Index));
         }
         public IActionResult AddBlogCategory()
@@ -112,23 +94,10 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
                 }
                 return View(blogCategoryDto);
             }
-
-            try
-            {
                 var response = await _client.PostAsJsonAsync("blogcategory", blogCategoryDto);
-                if (!response.IsSuccessStatusCode)
-                {
-                    ModelState.AddModelError(string.Empty, "Ekleme işlemi başarısız oldu.");
-                    return View(blogCategoryDto);
-                }
-
                 return RedirectToAction(nameof(Index));
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError(string.Empty, $"Hata: {ex.Message}");
-                return View(blogCategoryDto);
-            }
+            
+
         }
 
         [HttpGet]

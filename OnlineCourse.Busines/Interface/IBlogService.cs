@@ -7,5 +7,6 @@
         bool AddBlog(BlogDto blog);
         bool DeleteBlog(int id);
         bool UpdateBlog(BlogDto blogDto);
+        List<BlogDto> GetBlogsWithCategories();
     }
 }
