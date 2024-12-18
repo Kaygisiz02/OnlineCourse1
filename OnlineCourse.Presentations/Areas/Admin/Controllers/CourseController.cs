@@ -16,9 +16,9 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
                                          select new SelectListItem
                                          {
                                              Text=x.CourseCategoryName,
-                                             Value=x.CourseCategoryId.ToString()
+                                             Value=x.CourseCategoryId.ToString(),
                                          }).ToList();
-            ViewBag.CourseCategory = courseCategories;
+            ViewBag.courseCategories = courseCategories;
         }
         public async Task<IActionResult> Index()
         {
