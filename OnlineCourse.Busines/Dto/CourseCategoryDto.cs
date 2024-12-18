@@ -7,7 +7,7 @@ namespace OnlineCourse.Busines
         public int CourseCategoryId { get; set; }
         public string CourseCategoryName { get; set; }
         public string Icon { get; set; }
-        public int CourseId { get; set; }
-        public int CategoryId { get; set; }
+        public string Description { get; set; }
+        public bool IsShown { get; set; }
     }
 }
