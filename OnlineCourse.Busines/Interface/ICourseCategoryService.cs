@@ -7,7 +7,8 @@
         bool AddCourseCategory(CourseCategoryDto courseCategory);
         bool UpdateCourseCategory(CourseCategoryDto courseCategory);
         bool RemoveCourseCategory(int id);
-
+        void TDontShowOnHome(int id);
+        void TShowOnHome(int id);
 
     }
 }
