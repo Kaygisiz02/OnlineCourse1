@@ -1,32 +1,26 @@
-﻿@model List<MessageDto>
+﻿@model List<SocialMediaDto>
 @{
-    ViewData["Title"] = "Gelen Mesajlar Sayfası";
+    ViewData["Title"] = "Social Medya Sayfası";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 @{
     int count = 0;
 }
-
 <table class="table table-hover">
     <tr>
         <th>#</th>
-        <th>Gönderen Adı</th>
-        <th>Gönderen Email</th>
-        <th>Konu</th>
+        <th>Sosyal Medya</th>
     </tr>
     @foreach (var item in Model)
     {
         count++;
         <tr>
             <th>@count</th>
-            <th>@count</th>
-            <td>@item.MessageName</td>
-            <td>@item.Email</td>
-            <td>@item.Subject</td>
+            <td><i class="@item.Icon fa-2x"></i> <a href="@item.UrlLink" target="_blank">@item.Title</a></td>
+
             <td>
-                <button onclick="RemoveMessage(@item.MesageId)" class="btn btn-outline-danger">Mesajı Sil</button>
-                <a asp-action="MessageDetail" asp-controller="Message" asp-area="Admin" asp-route-id="@item.MesageId" class="btn btn-outline-info">Mesajı aç</a>
+                <button onclick="RemoveSocialMedia(@item.SocialMediaId)" class="btn btn-outline-danger">Sil</button>
+                <a asp-action="UpdateSocialMedia" asp-controller="SocialMedia" asp-area="Admin" asp-route-id="@item.SocialMediaId" class="btn btn-outline-info">Güncelle</a>
             </td>
 
         </tr>
