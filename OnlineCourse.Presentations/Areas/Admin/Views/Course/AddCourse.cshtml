@@ -1,6 +1,6 @@
 ﻿@model CourseDto
 @{
-    ViewData["Title"] = "AddCourse";
+    ViewData["Title"] = "Yeni Kurs Safası Ekle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <form  method="post">
@@ -14,14 +14,14 @@
     <input type="text" asp-for="Price" class="form-control"/>
     <br />  
     <label>Kategori</label>
-   <select asp-for="CourseCategoryId" class="form-control" asp-items="@ViewBag.courseCategories">
+   <select asp-for="CourseCategoryId" class="form-control" asp-items="@ViewBag.courseCategory">
     <option>Kategori Seçin</option>
-</select>
+    </select>
     <br />
     <label>Ana Sayfada Gösterilsin</label>
     <input type="checkbox" asp-for="IsShown" class="form-check" />
     <br />
     <button class="btn btn-outline-primary">Kaydet</button>
-    <a asp-action="Index" asp-controller="CourseCategory" asp-area="Admin" class="btn btn-secondary">İptal</a>
+    <a asp-action="Index" asp-controller="Course" asp-area="Admin" class="btn btn-secondary">İptal</a>
 </form>
 

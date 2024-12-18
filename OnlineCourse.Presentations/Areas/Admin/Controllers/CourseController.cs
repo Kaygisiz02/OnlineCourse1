@@ -18,17 +18,17 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
                                              Text=x.CourseCategoryName,
                                              Value=x.CourseCategoryId.ToString(),
                                          }).ToList();
-            ViewBag.courseCategories = courseCategories;
+            ViewBag.courseCategory = courseCategories;
         }
         public async Task<IActionResult> Index()
         {
-            var aboutList = await _client.GetFromJsonAsync<List<CourseDto>>("Course");
-            return View(aboutList);
+            var  courseList = await _client.GetFromJsonAsync<List<CourseDto>>("course");
+            return View(courseList);
 
         }
         public async Task<IActionResult> RemoveCourse(int id)
         {
-            await _client.DeleteAsync($"Course/{id}");
+            await _client.DeleteAsync($"course/{id}");
             return RedirectToAction(nameof(Index));
 
         }
@@ -57,17 +57,17 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateCourse(CourseDto courseDto)
         {
-            await _client.PutAsJsonAsync("Course", courseDto);
+            await _client.PutAsJsonAsync("course", courseDto);
             return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> ShowOnHome(int id)
         {
-            await _client.GetAsync("Course/ShowOnHome/" + id);
+            await _client.GetAsync("course/ShowOnHome/" + id);
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> DontShowOnHome(int id)
         {
-            await _client.GetAsync("Course/DontShowOnHome/" + id);
+            await _client.GetAsync("course/DontShowOnHome/" + id);
             return RedirectToAction("Index");
         }
     }

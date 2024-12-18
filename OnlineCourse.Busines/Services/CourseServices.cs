@@ -28,6 +28,16 @@
             return _mapper.Map<CourseDto>(getById);
         }
 
+        public void TDontShowOnHome(int id)
+        {
+            _courseRepository.DontShowOnHome(id);
+        }
+
+        public void TShowOnHome(int id)
+        {
+            _courseRepository.ShowOnHome(id);
+        }
+
         public bool UpdateCourse(CourseDto courseDto)
         {
             var courseUpdate = _courseRepository.Get(courseDto.CourseId);
