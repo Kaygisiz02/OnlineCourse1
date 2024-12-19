@@ -19,18 +19,6 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
             ViewBag.categories = categories;
         }
         private readonly HttpClient _client = HttpClientInstance.CreateClient();
-        public async Task CategoryDropDown()
-        {
-            var categoryList = await _client.GetFromJsonAsync<List<BlogCategoryDto>>("blogCategory");
-            List<SelectListItem> categories = (from x in categoryList
-                                               select new SelectListItem
-                                               {
-                                                   Text = x.BlogCategoryName,
-                                                   Value = x.BlogCategoryId.ToString(),
-                                                   
-                                               }).ToList();
-            ViewBag.category = categories;
-        }
         public async Task<IActionResult> Index()
         {
             var aboutList = await _client.GetFromJsonAsync<List<BlogDto>>("blog");
@@ -59,6 +47,7 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
         public async Task<IActionResult> UpdateBlog(int id)
         {
             await CategoryDropDown();
+            return View();
 
         }
         [HttpPost]
