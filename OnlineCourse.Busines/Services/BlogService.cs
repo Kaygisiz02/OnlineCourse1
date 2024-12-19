@@ -27,7 +27,6 @@
             var BlogId= _blogRepository.Get(id);
             return _mapper.Map<BlogDto>(BlogId);
         }
-
         public List<BlogDto> GetBlogWithCategories()
         {
             var blogGet = _blogRepository.GetBlogWithCategories();

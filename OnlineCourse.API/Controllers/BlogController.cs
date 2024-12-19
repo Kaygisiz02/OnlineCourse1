@@ -9,6 +9,7 @@
         [HttpGet]
         public IActionResult GetAll()
         {
+         
             var blog= _blogService.GetBlogWithCategories();
             return Ok(blog);
         }

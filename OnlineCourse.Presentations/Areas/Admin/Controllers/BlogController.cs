@@ -19,13 +19,25 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
             ViewBag.categories = categories;
         }
         private readonly HttpClient _client = HttpClientInstance.CreateClient();
+        public async Task CategoryDropDown()
+        {
+            var categoryList = await _client.GetFromJsonAsync<List<BlogCategoryDto>>("blogCategory");
+            List<SelectListItem> categories = (from x in categoryList
+                                               select new SelectListItem
+                                               {
+                                                   Text = x.BlogCategoryName,
+                                                   Value = x.BlogCategoryId.ToString(),
+                                                   
+                                               }).ToList();
+            ViewBag.category = categories;
+        }
         public async Task<IActionResult> Index()
         {
             var aboutList = await _client.GetFromJsonAsync<List<BlogDto>>("blog");
             return View(aboutList);
 
         }
-        public  async Task<IActionResult> RemoveAbout(int id)
+        public async Task<IActionResult> RemoveAbout(int id)
         {
             await _client.DeleteAsync($"blog/{id}");
             return RedirectToAction(nameof(Index));
@@ -42,15 +54,11 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
         {
             var values = await _client.PostAsJsonAsync("blog", blogDto);
             return RedirectToAction(nameof(Index));
-
         }
         [HttpGet]
         public async Task<IActionResult> UpdateBlog(int id)
         {
             await CategoryDropDown();
-            var value = await _client.GetFromJsonAsync<BlogDto>($"blog/{id}");
-            return View(value);
-
 
         }
         [HttpPost]
