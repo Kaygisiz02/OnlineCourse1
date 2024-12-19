@@ -1,6 +1,6 @@
 ﻿@model AboutDto
 @{
-    ViewData["Title"] = "UpdateAbout";
+    ViewData["Title"] = "Hakkında Alanını Güncellemek";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -28,6 +28,6 @@
     <input type="text" asp-for="Item4" class="form-control" />
     <br />
     <button class="btn btn-outline-primary">Güncelleme</button>
-    <a asp-action="Index" asp-controller="Banner" asp-area="Admin" class="btn btn-secondary">İptal</a>
+    <a asp-action="Index" asp-controller="About" asp-area="Admin" class="btn btn-secondary">İptal</a>
 </form>
 

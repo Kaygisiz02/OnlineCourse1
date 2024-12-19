@@ -28,6 +28,16 @@
 
         }
 
+        public void TDontShowOnHome(int id)
+        {
+            _courseCategoryRepository.DontShowOnHome(id);
+        }
+
+        public void TShowOnHome(int id)
+        {
+            _courseCategoryRepository.ShowOnHome(id);
+        }
+
         public bool UpdateCourseCategory(CourseCategoryDto courseCategory)
         {
             var updateCourseCategory= _courseCategoryRepository.Get(courseCategory.CourseCategoryId);

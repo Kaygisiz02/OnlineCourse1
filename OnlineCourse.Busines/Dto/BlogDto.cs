@@ -6,8 +6,8 @@
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
-        public DateTime BlogCreatedDate { get; set; }=DateTime.Now;
+        public DateTime BlogCreatedDate { get; set; }= DateTime.Now;
         public int BlogCategoryId { get; set; }
-        public BlogCategoryDto? BlogCategory { get; set; }
+        public  BlogCategoryDto? BlogCategory { get; set; }
     }
 }

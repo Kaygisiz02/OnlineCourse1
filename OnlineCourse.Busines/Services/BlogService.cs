@@ -27,11 +27,10 @@
             var BlogId= _blogRepository.Get(id);
             return _mapper.Map<BlogDto>(BlogId);
         }
-
-        public List<BlogDto> GetBlogsWithCategories()
+        public List<BlogDto> GetBlogWithCategories()
         {
-           var blog=_blogRepository.GetBlogsWithCategories();
-            return _mapper.Map<List<BlogDto>>(blog);
+            var blogGet = _blogRepository.GetBlogWithCategories();
+            return _mapper.Map<List<BlogDto>>(blogGet);
         }
 
         public bool UpdateBlog(BlogDto blogDto)

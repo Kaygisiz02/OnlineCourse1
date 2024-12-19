@@ -52,6 +52,17 @@ namespace OnlineCourse.API.Controllers
             }
             return Ok("Kurs Kategorisi Silindi");
         }
-        
+        [HttpGet("ShowOnHome/{id}")]
+        public IActionResult ShowOnHome(int id)
+        {
+            _courseCategoryService.TShowOnHome(id);
+            return Ok("Ana Sayfada Gösteriliyor.");
+        }  
+        [HttpGet("DontShowOnHome/{id}")]
+        public IActionResult DontShowOnHome(int id)
+        {
+            _courseCategoryService.TDontShowOnHome(id);
+            return Ok("Ana Sayfada Gösterilmiyor.");
+        }
     }
 }

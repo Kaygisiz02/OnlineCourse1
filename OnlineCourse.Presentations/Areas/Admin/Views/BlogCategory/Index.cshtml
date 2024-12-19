@@ -17,8 +17,8 @@
         count++;
         <tr>
             <th>@count</th>
-            <td>@item.BlogCategoryName</td>
-            <td>@item.Description</td>
+           <td>@item.BlogCategoryName</td>
+           <td>@item.Description</td>
             <td>
                 <button onclick="RemoveBlogCategory(@item.BlogCategoryId)" class="btn btn-outline-danger">Sil</button>
                 <a asp-action="UpdateBlogCategory" asp-controller="BlogCategory" asp-area="Admin" asp-route-id="@item.BlogCategoryId" class="btn btn-outline-info">Güncelle</a>

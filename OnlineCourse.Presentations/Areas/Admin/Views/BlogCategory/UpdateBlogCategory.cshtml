@@ -1,21 +1,20 @@
 ﻿@model BlogCategoryDto
 @{
-    ViewData["Title"] = "Blog Kategori Güncelle";
+    ViewData["Title"] = "Yeni Blog Kategorisi Güncelleme Sayfası";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<form asp-action="UpdateBlogCategory" asp-controller="BlogCategory" asp-area="Admin" method="post">
+<form method="post">
     <input type="hidden" asp-for="BlogCategoryId" />
     <label>Blog Kategorisi Adı</label>
     <input type="text" asp-for="BlogCategoryName" class="form-control" />
     <span asp-validation-for="BlogCategoryName" class="text-danger"></span>
     <br />
-    <label>Açıklama</label>
+    <label>Blog Kategorisi Açıklaması</label>
     <input type="text" asp-for="Description" class="form-control" />
     <span asp-validation-for="Description" class="text-danger"></span>
     <br />
     <button class="btn btn-outline-primary">Güncelle</button>
-    <a asp-action="Index" asp-controller="BlogCategoryDto" asp-area="Admin" class="btn btn-secondary">İptal</a>
+    <a asp-action="Index" asp-controller="BlogCategory" asp-area="Admin" class="btn btn-secondary">İptal</a
 </form>
-
 

@@ -46,5 +46,10 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
             await _client.PutAsJsonAsync("courseCategory", courseCategoryDto);
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> DontShowOnHome(int id)
+        {
+            await _client.GetAsync("coursecategory/DontShowOnHome/" + id);
+            return RedirectToAction("Index");
+        }
     }
 }

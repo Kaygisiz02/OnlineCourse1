@@ -7,5 +7,8 @@
         bool  AddCourse(CourseDto courseDto);
         bool UpdateCourse(CourseDto courseDto);
         bool DeleteCourse(int id);
+        void TDontShowOnHome(int id);
+        void TShowOnHome(int id);
+
     }
 }

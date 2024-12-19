@@ -3,16 +3,15 @@ namespace OnlineCourse.Repository
 {
     public class BlogRepository : BaseRepository<Blog>, IBlogRepository
     {
-        private readonly OnlineCourseDbContext _dbContext;
+        private readonly OnlineCourseDbContext _context;
         public BlogRepository(OnlineCourseDbContext dbContext) : base(dbContext)
         {
-            _dbContext = dbContext;
+            _context = dbContext;
         }
 
-        public List<Blog> GetBlogsWithCategories()
+        public List<Blog> GetBlogWithCategories()
         {
-           return _dbContext.Blogs.Include(
-               x=>x.BlogCategory).ToList();
+           return _context.Blogs.Include(x=>x.BlogCategory).ToList();
         }
     }
 }
