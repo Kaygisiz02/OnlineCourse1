@@ -9,16 +9,13 @@
 }
 <table class="table table-hover">
     <tr>
-
         <th>#</th>
         <th>Kurs Kategori Adı</th>
         <th>Açıklama</th>
         <th>Gösterilme Durumu</th>
         <th></th>
         <th>Ana Sayfada</th>
-
     </tr>
-
     @foreach (var item in Model)
     {
         count++;
@@ -26,17 +23,16 @@
             <th>@count</th>
             <td>@item.CourseCategoryName</td>
             <td>@item.Description</td>
-            <td>@(item.IsShown ? "Gösteriliyor" : "Gösterilmiyor") </td>
+            <td>@(item.IsShown ? "Gösteriliyor":"Gösterilmiyor")</td>
             <td>
-                <button onclick="deleteCourseCategory(@item.CourseCategoryId)" class="btn btn-outline-danger">Sil</button>
-                <a asp-action="UpdateCourseCategory" asp-controller="CourseCategory" asp-area="Admin" asp-route-id="@item.CourseCategoryId" class="btn btn-outline-info">Güncelle</a>
-
+                <button onclick="RemoveCourseCategory(@item.CourseCategoryId)" class="btn btn-outline-danger">Sil</button>
+                <a asp-action="UpdateCourseCategory" asp-controller="CourseCategory" asp-area="Admin" asp-route-id="@item.CourseCategoryId" class="btn btn-outline-info">Güncelle</a> 
 
 
             </td>
             <td>
-                <a asp-action="ShowOnHome" asp-controller="CourseCategory" asp-area="Admin" asp-route-id="@item.CourseCategoryId" class="btn btn-outline-success"> Göster</a>
-                <a asp-action="DontShowOnHome" asp-controller="CourseCategory" asp-area="Admin" asp-route-id="@item.CourseCategoryId" class="btn btn-outline-secondary"> Gösterme</a>
+                <a asp-action="ShowOnHome" asp-controller="CourseCategory" asp-area="Admin" asp-route-id="@item.CourseCategoryId" class="btn btn-outline-success">Göster</a>
+                <a asp-action="DontShowOnHome" asp-controller="CourseCategory" asp-area="Admin" asp-route-id="@item.CourseCategoryId" class="btn btn-outline-secondary">Gösterme</a>
             </td>
         </tr>
 

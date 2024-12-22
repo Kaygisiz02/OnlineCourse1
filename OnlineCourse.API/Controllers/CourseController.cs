@@ -60,11 +60,5 @@
             _courseService.TDontShowOnHome(id);
             return Ok("Ana Sayfada Gösterilmiyor.");
         }
-        [HttpGet("GetActiveCourse")]
-        public IActionResult GetActiveCourse()
-        {
-            var getActiveCourse = _courseService.GetAllCourse(x => x.IsShown == true);
-            return Ok(getActiveCourse);
-        }
     }
 }
