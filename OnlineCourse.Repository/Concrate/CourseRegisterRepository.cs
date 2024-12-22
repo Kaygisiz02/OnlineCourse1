@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace OnlineCourse.Repository
 {
-    public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
+    public class CourseRegisterRepository : BaseRepository<CourseRegister>, ICourseRegisterRepository
     {
-        public CategoryRepository(OnlineCourseDbContext dbContext) : base(dbContext)
+        public CourseRegisterRepository(OnlineCourseDbContext dbContext) : base(dbContext)
         {
         }
     }

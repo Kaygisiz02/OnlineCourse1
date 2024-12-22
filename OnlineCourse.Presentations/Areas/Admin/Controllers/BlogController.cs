@@ -22,7 +22,7 @@
             return View(aboutList);
 
         }
-        public async Task<IActionResult> RemoveAbout(int id)
+        public async Task<IActionResult> RemoveBlog(int id)
         {
             await _client.DeleteAsync($"blog/{id}");
             return RedirectToAction(nameof(Index));
@@ -44,7 +44,8 @@
         public async Task<IActionResult> UpdateBlog(int id)
         {
             await CategoryDropDown();
-            return View();
+            var value = await _client.GetFromJsonAsync<BlogDto>($"blog/{id}");
+            return View(value);
 
         }
         [HttpPost]

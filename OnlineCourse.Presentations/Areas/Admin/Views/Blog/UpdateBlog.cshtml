@@ -1,14 +1,13 @@
-﻿@model BlogDto
+﻿   @model BlogDto
 @{
     ViewData["Title"] = " Blog Sayfasını Güncelle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<form method="post">
+@* <form method="post">
     <input type="hidden" asp-for="BlogId" />
     <label>Blog Başlığı</label>
     <input type="text" asp-for="Title" class="form-control" />
-    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    <span asp-validation-for="Title" class="text-danger"></span>
     <br />
     <label>Blog İçeriği</label>
     <input type="text" asp-for="Description" class="form-control" rows="5" />
@@ -22,10 +21,39 @@
     <select asp-items="@ViewBag.categories" asp-for="BlogCategoryId" class="form-control">
         <option>Kategori Seçin</option>
     </select>
+    <span asp-validation-for="BlogCategoryId" class="text-danger"></span>
     <br />
-
     <button class="btn btn-outline-primary">Güncelle</button>
     <a asp-action="Index" asp-controller="Blog" asp-area="Admin" class="btn btn-secondary">İptal</a>
+</form> *@
+<form asp-action="UpdateBlog" asp-controller="Blog" asp-area="Admin" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="BlogId" />
+
+    <div class="form-group">
+        <label asp-for="Title">Blog Başlığı</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>  
+    <div class="form-group">
+        <label asp-for="Description">Blog İçeriği</label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageUrl">Resim Url</label>
+        <input asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BlogCategoryId">Kategori</label>
+        <select asp-for="BlogCategoryId" class="form-control" asp-items="ViewBag.Categories">
+            <option value="">-- Kategori Seçin --</option>
+        </select>
+        <span asp-validation-for="BlogCategoryId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+    <a asp-action="Index" asp-controller="Blog" asp-area="Admin" class="btn btn-secondary">İptal</a>
 </form>
-
-

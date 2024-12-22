@@ -3,26 +3,30 @@
     ViewData["Title"] = "Yeni Blog Sayfası Ekle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<form method="post">
-    <label>Blog Başlığı</label>
-    <input type="text" asp-for="Title" class="form-control" />
-    <span asp-validation-for="ImageUrl" class="text-danger"></span>
-    <br />
-    <label>Blog İçeriği</label>
-    <input type="text" asp-for="Description" class="form-control" rows="5" />
-    <span asp-validation-for="Description" class="text-danger"></span>
-    <br />
-    <label>Resim Url</label>
-    <input type="text" asp-for="ImageUrl" class="form-control"/>
-    <span asp-validation-for="ImageUrl" class="text-danger"></span>
-    <br />
-    <label>Blog Kategorisi</label>
-    <select asp-items="@ViewBag.categories" asp-for="BlogCategoryId" class="form-control">
-        <option>Kategori Seçin</option>
+<form asp-action="AddBlog" asp-controller="Blog" asp-area="Admin" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Title">Blog Başlığı</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Blog İçeriği</label>
+        <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl">Resim Url</label>
+        <input asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BlogCategoryId">Kategori</label>
+        <select asp-for="BlogCategoryId" class="form-control" asp-items="ViewBag.Categories">
+            <option value="">-- Lütfen Bir Kategori Seçin --</option>
         </select>
-    <br />
-
-    <button class="btn btn-outline-primary">Kaydet</button>
+        <span asp-validation-for="BlogCategoryId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Kaydet</button>
     <a asp-action="Index" asp-controller="Blog" asp-area="Admin" class="btn btn-secondary">İptal</a>
 </form>
 

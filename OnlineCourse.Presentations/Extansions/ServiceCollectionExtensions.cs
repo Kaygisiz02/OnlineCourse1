@@ -9,7 +9,7 @@ namespace OnlineCourse.Presentations
             services.AddScoped<IBannerService, BannerService>();
             services.AddScoped<IBlogService, BlogService>();
             services.AddScoped<IBlogCategoryService, BlogCategoryService>();
-            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ICourseRegisterService, CourseRegisterService>();
             services.AddScoped<ICourseService, CourseServices>();
             services.AddScoped<ICourseCategoryService, CourseCategoryService>();
             services.AddScoped<IContactService, ContactServices>();

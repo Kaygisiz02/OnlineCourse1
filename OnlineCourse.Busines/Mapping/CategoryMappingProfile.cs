@@ -4,7 +4,7 @@
     {
         public CategoryMappingProfile()
         {
-            CreateMap<CategoryDto, Category>().ReverseMap();
+            CreateMap<CourseRegisterDto, CourseRegister>().ReverseMap();
         }
     }
 }

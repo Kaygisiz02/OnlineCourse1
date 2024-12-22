@@ -2,9 +2,9 @@
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController(ICategoryService categoryService) : ControllerBase
+    public class CourseRegisterController(ICourseRegisterService categoryService) : ControllerBase
     {
-        readonly ICategoryService _categoryService=categoryService;
+        readonly ICourseRegisterService _categoryService=categoryService;
         [HttpGet]
         public ActionResult GetAll()
         {
@@ -22,13 +22,13 @@
             return Ok(getById);
         }
         [HttpPost]
-        public IActionResult AddController(CategoryDto category)
+        public IActionResult AddController(Busines.CourseRegisterDto category)
         {
             var controllerAdd = _categoryService.AddCategory(category);
             return Ok(controllerAdd);
         }
         [HttpPut]
-        public IActionResult Update(CategoryDto category)
+        public IActionResult Update(Busines.CourseRegisterDto category)
         {
             var update=_categoryService.UpdateCategory(category);
             if (!update)

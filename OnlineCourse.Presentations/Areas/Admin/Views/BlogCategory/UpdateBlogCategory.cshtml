@@ -8,11 +8,11 @@
     <input type="hidden" asp-for="BlogCategoryId" />
     <label>Blog Kategorisi Adı</label>
     <input type="text" asp-for="BlogCategoryName" class="form-control" />
-    <span asp-validation-for="BlogCategoryName" class="text-danger"></span>
+    <span asp-for="BlogCategoryName" class="text-danger"></span>
     <br />
     <label>Blog Kategorisi Açıklaması</label>
     <input type="text" asp-for="Description" class="form-control" />
-    <span asp-validation-for="Description" class="text-danger"></span>
+    <span asp-for="Description" class="text-danger"></span>
     <br />
     <button class="btn btn-outline-primary">Güncelle</button>
     <a asp-action="Index" asp-controller="BlogCategory" asp-area="Admin" class="btn btn-secondary">İptal</a>

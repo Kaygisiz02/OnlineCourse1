@@ -33,7 +33,7 @@
                 <td>@item.Item3</td>
                 <td>@item.Item4</td>
                 <td>
-                    <button onclick="RemoveAbout(@item.AboutId)" class="btn btn-outline-danger btn-sm">Sil</button>
+                    <button onclick="RemoveAbout(@item.AboutId)" class="btn btn-outline-danger">Sil</button>
                     <a asp-action="UpdateAbout" asp-controller="About" asp-area="Admin" asp-route-id="@item.AboutId" class="btn btn-outline-info btn-sm">Güncelle</a>
                 </td>
             </tr>

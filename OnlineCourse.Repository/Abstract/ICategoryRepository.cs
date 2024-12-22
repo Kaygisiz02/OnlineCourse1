@@ -1,6 +1,6 @@
 ﻿namespace OnlineCourse.Repository
 {
-    public interface ICategoryRepository:IBaseRepository<Category>
+    public interface ICourseRegisterRepository : IBaseRepository<CourseRegister>
     {
     }
 }
