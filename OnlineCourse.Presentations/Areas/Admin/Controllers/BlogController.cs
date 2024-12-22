@@ -1,4 +1,8 @@
-﻿namespace OnlineCourse.Presentations.Areas.Admin.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using OnlineCourse.Busines;
+
+namespace OnlineCourse.Presentations.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("[area]/[controller]/[action]/{id?}")]

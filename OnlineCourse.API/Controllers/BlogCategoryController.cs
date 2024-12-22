@@ -1,6 +1,4 @@
-﻿using OnlineCourse.Entity;
-
-namespace OnlineCourse.API.Controllers
+﻿namespace OnlineCourse.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

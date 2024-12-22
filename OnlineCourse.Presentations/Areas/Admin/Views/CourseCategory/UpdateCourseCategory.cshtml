@@ -5,18 +5,17 @@
 }
 
 <form method="post">
-    <input type="hidden" asp-for="CourseCategoryId"  />
+    <input type="hidden" asp-for="CourseCategoryId" />
     <label>Kurs Kategori Adı</label>
     <input type="text" asp-for="CourseCategoryName" class="form-control" />
     <br />
     <label>Açıklama</label>
-    <input type="text" asp-for="Description" class="form-control" />
+    <textarea type="text" asp-for="Description" class="form-control" rows="3"></textarea>
     <br />
     <label>İkon</label>
     <input type="text" asp-for="Icon" class="form-control" />
     <br />
-    <label>Ana Sayfada Gösterilsin</label>
-    <input type="checkbox" asp-for="IsShown" class="form-check" />
+    <label>Ana Sayfada Gösterilsin</label> <input type="checkbox" asp-for="IsShown" class="form-check" />
     <br />
     <button class="btn btn-outline-primary">Güncelle</button>
     <a asp-action="Index" asp-controller="CourseCategory" asp-area="Admin" class="btn btn-secondary">İptal</a>
