@@ -1,4 +1,8 @@
-﻿namespace OnlineCourse.API.Controllers
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
+namespace OnlineCourse.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -52,22 +56,13 @@
         public IActionResult ShowOnHome(int id)
         {
             _courseCategoryService.TShowOnHome(id);
-            return Ok("Ana Sayfada Gösteriliyor");
-        }
-
+            return Ok("Ana Sayfada Gösteriliyor.");
+        }  
         [HttpGet("DontShowOnHome/{id}")]
         public IActionResult DontShowOnHome(int id)
         {
             _courseCategoryService.TDontShowOnHome(id);
-            return Ok("Ana Sayfada Gösterilmiyor");
+            return Ok("Ana Sayfada Gösterilmiyor.");
         }
-
-        [HttpGet("GetActiveCategory")]
-        public IActionResult GetActiveCategory()
-        {
-            var values = _courseCategoryService.GetFiterCourseCategory(x=>x.IsShown==true);
-            return Ok(values);
-        }
-
     }
 }
