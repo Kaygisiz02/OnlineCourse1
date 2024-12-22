@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
-using OnlineCourse.Busines;
-
-namespace OnlineCourse.Presentations.Views.Home.Components._HomeBannerComponenet
+﻿namespace OnlineCourse.Presentations.Views.Home.Components._HomeBannerComponenet
 {
     public class _HomeBannerComponenet : ViewComponent
     {

@@ -9,7 +9,7 @@ namespace OnlineCourse.Presentations
             services.AddScoped<IBannerService, BannerService>();
             services.AddScoped<IBlogService, BlogService>();
             services.AddScoped<IBlogCategoryService, BlogCategoryService>();
-            services.AddScoped<ICourseRegisterService, CourseRegisterService>();
+            services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ICourseService, CourseServices>();
             services.AddScoped<ICourseCategoryService, CourseCategoryService>();
             services.AddScoped<IContactService, ContactServices>();
@@ -17,7 +17,6 @@ namespace OnlineCourse.Presentations
             services.AddScoped<ISocialMediaService, SocialMediaServices>();
             services.AddScoped<ISubscribeService, SubscribeServices>();
             services.AddScoped<ITestimonialService, TestimonialServices>();
-            services.AddScoped<IUserService, UserService>();
         }
     }
 }
