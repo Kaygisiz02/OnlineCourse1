@@ -43,6 +43,11 @@
             await _client.PutAsJsonAsync("courseCategory", courseCategoryDto);
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> ShowOnHome(int id)
+        {
+            await _client.GetAsync("coursecategory/ShowOnHome/" + id);
+            return RedirectToAction("Index");
+        }
         public async Task<IActionResult> DontShowOnHome(int id)
         {
             await _client.GetAsync("coursecategory/DontShowOnHome/" + id);
