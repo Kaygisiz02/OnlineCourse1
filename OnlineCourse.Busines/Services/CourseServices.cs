@@ -1,4 +1,6 @@
-﻿namespace OnlineCourse.Busines
+﻿using System.Linq.Expressions;
+
+namespace OnlineCourse.Busines
 {
     public class CourseServices(ICourseRepository courseRepository, IMapper mapper) : ICourseService
     {
@@ -17,6 +19,12 @@
         }
 
         public IEnumerable<CourseDto> GetAllCourse()
+        {
+            var getAll = _courseRepository.GetAll();
+            return _mapper.Map<IEnumerable<CourseDto>>(getAll);
+        }
+
+        public IEnumerable<CourseDto> GetAllCourse(Expression<Func<CourseDto, bool>> predicate)
         {
             var getAll = _courseRepository.GetAll();
             return _mapper.Map<IEnumerable<CourseDto>>(getAll);

@@ -1,13 +1,13 @@
-using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using OnlineCourse.Busines;
 using OnlineCourse.Entity;
+using OnlineCourse.Entity.Entity;
 using OnlineCourse.Presentations;
 using OnlineCourse.Presentations.Extansions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddAutoMapperCustom();
@@ -17,6 +17,7 @@ builder.Services.AddDbContext<OnlineCourseDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
 });
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<OnlineCourseDbContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
