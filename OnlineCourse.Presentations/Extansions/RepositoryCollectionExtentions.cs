@@ -11,7 +11,7 @@ namespace OnlineCourse.Presentations.Extansions
             services.AddScoped<IBannerRepository, BannerRepository>();
             services.AddScoped<IBlogRepository, BlogRepository>();
             services.AddScoped<IBlogCategoryRepository, BlogCategoryRepository>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICourseRegisterRepository, CourseRegisterRepository>();
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<ICourseCategoryRepository, CourseCategoryRepository>();
             services.AddScoped<IContactRepository, ContactRepository>();
