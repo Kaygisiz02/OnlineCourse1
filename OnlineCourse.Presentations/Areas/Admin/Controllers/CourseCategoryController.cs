@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using OnlineCourse.Busines;
-
-namespace OnlineCourse.Presentations.Areas.Admin.Controllers
+﻿namespace OnlineCourse.Presentations.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("[area]/[controller]/[action]/{id?}")]
@@ -46,16 +43,10 @@ namespace OnlineCourse.Presentations.Areas.Admin.Controllers
             await _client.PutAsJsonAsync("courseCategory", courseCategoryDto);
             return RedirectToAction(nameof(Index));
         }
-        public async Task<IActionResult> ShowOnHome(int id)
-        {
-            await _client.GetAsync("coursecategory/ShowOnHome/" + id);
-            return RedirectToAction("Index");
-        }
         public async Task<IActionResult> DontShowOnHome(int id)
         {
             await _client.GetAsync("coursecategory/DontShowOnHome/" + id);
             return RedirectToAction("Index");
         }
-
     }
 }

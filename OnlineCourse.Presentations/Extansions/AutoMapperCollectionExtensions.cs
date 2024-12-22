@@ -11,7 +11,7 @@ namespace OnlineCourse.Presentations.Extansions
             services.AddAutoMapper(typeof(BannerMappingProfile));
             services.AddAutoMapper(typeof(BlogMappingProfile));
             services.AddAutoMapper(typeof(BlogCategoryMappingProfile));
-            services.AddAutoMapper(typeof(CourseRegisterMappingProfile));
+            services.AddAutoMapper(typeof(CategoryMappingProfile));
             services.AddAutoMapper(typeof(CourseMappingProfile));
             services.AddAutoMapper(typeof(CourseCategoryMappingProfile));
             services.AddAutoMapper(typeof(ContactMappingProfile));
