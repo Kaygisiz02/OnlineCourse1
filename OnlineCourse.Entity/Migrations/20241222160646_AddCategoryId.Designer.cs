@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineCourse.Entity;
 
@@ -11,9 +12,11 @@ using OnlineCourse.Entity;
 namespace OnlineCourse.Entity.Migrations
 {
     [DbContext(typeof(OnlineCourseDbContext))]
-    partial class OnlineCourseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241222160646_AddCategoryId")]
+    partial class AddCategoryId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -262,25 +265,6 @@ namespace OnlineCourse.Entity.Migrations
                     b.HasKey("CourseCategoryId");
 
                     b.ToTable("CourseCategories");
-                });
-
-            modelBuilder.Entity("OnlineCourse.Entity.CourseRegister", b =>
-                {
-                    b.Property<int>("CourseRegisterId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseRegisterId"));
-
-                    b.Property<int>("AppUserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CourseRegisterId");
-
-                    b.ToTable("CourseRegisters");
                 });
 
             modelBuilder.Entity("OnlineCourse.Entity.Message", b =>
