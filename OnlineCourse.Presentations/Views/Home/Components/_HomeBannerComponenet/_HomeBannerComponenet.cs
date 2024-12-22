@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using OnlineCourse.Busines;
 
 namespace OnlineCourse.Presentations.Views.Home.Components._HomeBannerComponenet
