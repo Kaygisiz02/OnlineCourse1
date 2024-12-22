@@ -1,4 +1,5 @@
-﻿namespace OnlineCourse.Busines
+﻿using System.Linq.Expressions;
+namespace OnlineCourse.Busines
 {
     public class CourseCategoryService(ICourseCategoryRepository courseCategoryRepository,  IMapper mapper) : ICourseCategoryService
     {
@@ -10,10 +11,16 @@
             return _courseCategoryRepository.Add(addCourseCategory);
         }
 
-        public IEnumerable<CourseCategoryDto> GetAllCourseCategory()
+        public List<CourseCategoryDto> GetAllCourseCategory()
         {
             var getAllCourseCategory= _courseCategoryRepository.GetAll();
             return _mapper.Map<List<CourseCategoryDto>>(getAllCourseCategory);
+        }
+
+        public List<CourseCategoryDto> GetAllFiltered(Expression<Func<CourseCategory, bool>> predicate)
+        {
+           var getAllFiltered = _courseCategoryRepository.GetAllFiltered(predicate);
+            return _mapper.Map<List<CourseCategoryDto>>(getAllFiltered);
         }
 
         public CourseCategoryDto GetCourseCategoryById(int id)
@@ -21,6 +28,7 @@
             var getCourseCategoryById= _courseCategoryRepository.Get(id);
             return _mapper.Map<CourseCategoryDto>(getCourseCategoryById);
         }
+
 
         public bool RemoveCourseCategory(int id)
         {

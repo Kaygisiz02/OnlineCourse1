@@ -1,4 +1,6 @@
-﻿namespace OnlineCourse.Busines
+﻿using System.Linq.Expressions;
+
+namespace OnlineCourse.Busines
 {
     public class CourseServices(ICourseRepository courseRepository, IMapper mapper) : ICourseService
     {
@@ -8,7 +10,6 @@
         {
             var added = _mapper.Map<Course>(courseDto);
             return _courseRepository.Add(added);
-
         }
 
         public bool DeleteCourse(int id)
@@ -16,10 +17,16 @@
             return _courseRepository.Remove(id);
         }
 
-        public IEnumerable<CourseDto> GetAllCourse()
+        public List<CourseDto> GetAllCourse()
         {
             var getAll = _courseRepository.GetAll();
-            return _mapper.Map<IEnumerable<CourseDto>>(getAll);
+            return _mapper.Map<List<CourseDto>>(getAll);
+        }
+
+        public List<CourseDto> GetAllFiltered(Expression<Func<Course, bool>> predicate)
+        {
+            var getFiltered = _courseRepository.GetAllFiltered(predicate);
+            return _mapper.Map<List<CourseDto>>(getFiltered);
         }
 
         public CourseDto GetCourseById(int id)
@@ -27,6 +34,7 @@
             var getById = _courseRepository.Get(id);
             return _mapper.Map<CourseDto>(getById);
         }
+
 
         public void TDontShowOnHome(int id)
         {

@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-
-namespace OnlineCourse.API.Controllers
+﻿namespace OnlineCourse.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -63,6 +59,12 @@ namespace OnlineCourse.API.Controllers
         {
             _courseCategoryService.TDontShowOnHome(id);
             return Ok("Ana Sayfada Gösterilmiyor.");
+        }
+        [HttpGet("GetActiveCategories")]
+        public IActionResult GetActiveCategories()
+        {
+            var activeCourses = _courseCategoryService.GetAllFiltered(x => x.IsShown == true);
+            return Ok(activeCourses);
         }
     }
 }

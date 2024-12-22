@@ -4,7 +4,7 @@ namespace OnlineCourse.Repository
     public interface IBaseRepository<TEntity> where TEntity : class
     {
         List<TEntity> GetAll();
-        List<TEntity> GetAll(Expression<Func<TEntity, bool>> predicate);
+        List<TEntity> GetAllFiltered(Expression<Func<TEntity, bool>> predicate);
         TEntity? Get(int id);
         TEntity? Get(Expression<Func<TEntity, bool>> predicate);
         bool Add(TEntity entity);

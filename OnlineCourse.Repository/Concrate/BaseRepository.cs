@@ -36,10 +36,11 @@
             return _dbset.ToList();
         }
 
-        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> predicate)
+        public List<TEntity> GetAllFiltered(Expression<Func<TEntity, bool>> predicate)
         {
             return _dbset.Where(predicate).ToList();
         }
+         
 
         public bool Remove(int id)
         {

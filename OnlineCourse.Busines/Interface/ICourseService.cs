@@ -1,9 +1,12 @@
-﻿namespace OnlineCourse.Busines
+﻿using System.Linq.Expressions;
+
+namespace OnlineCourse.Busines
 {
     public interface ICourseService
     {
         CourseDto GetCourseById(int id);
-        IEnumerable<CourseDto> GetAllCourse();
+        List<CourseDto> GetAllCourse();
+        List<CourseDto> GetAllFiltered(Expression<Func<Course, bool>> predicate);
         bool  AddCourse(CourseDto courseDto);
         bool UpdateCourse(CourseDto courseDto);
         bool DeleteCourse(int id);
