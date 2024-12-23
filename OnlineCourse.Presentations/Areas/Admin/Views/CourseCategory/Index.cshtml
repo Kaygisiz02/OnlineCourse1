@@ -31,8 +31,16 @@
 
             </td>
             <td>
-                <a asp-action="ShowOnHome" asp-controller="CourseCategory" asp-area="Admin" asp-route-id="@item.CourseCategoryId" class="btn btn-outline-success">Göster</a>
-                <a asp-action="DontShowOnHome" asp-controller="CourseCategory" asp-area="Admin" asp-route-id="@item.CourseCategoryId" class="btn btn-outline-secondary">Gösterme</a>
+                @if (item.IsShown)
+                {
+                    <!-- Eğer Gösteriliyorsa "Gösterme" butonunu göster -->
+                    <a asp-action="DontShowOnHome" asp-controller="CourseCategory" asp-area="Admin" asp-route-id="@item.CourseCategoryId" class="btn btn-outline-secondary">Gösterme</a>
+                }
+                else
+                {
+                    <!-- Eğer Gösterilmiyorsa "Göster" butonunu göster -->
+                    <a asp-action="ShowOnHome" asp-controller="CourseCategory" asp-area="Admin" asp-route-id="@item.CourseCategoryId" class="btn btn-outline-success">Göster</a>
+                }
             </td>
         </tr>
 
