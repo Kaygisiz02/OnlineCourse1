@@ -1,6 +1,6 @@
 ﻿namespace OnlineCourse.Busines
 {
-    public class CategoryMappingProfile:Profile
+    public class CategoryMappingProfile : Profile
     {
         public CategoryMappingProfile()
         {

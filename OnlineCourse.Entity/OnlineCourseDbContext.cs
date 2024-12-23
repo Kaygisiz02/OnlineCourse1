@@ -1,9 +1,8 @@
-﻿
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 namespace OnlineCourse.Entity
 {
-    public class OnlineCourseDbContext : DbContext
+    public class OnlineCourseDbContext : IdentityDbContext<AppUser,AppRole,int>
     {
         public OnlineCourseDbContext(DbContextOptions options) : base(options)
         {
