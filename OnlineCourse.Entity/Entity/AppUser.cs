@@ -6,5 +6,7 @@ namespace OnlineCourse.Entity
         public string FirstName {  get; set; }  
         public string LastName { get; set; }
         public string? ImmageUrl {  get; set; }
+        public List<CourseRegister> courseRegisters { get; set; }
+        public List<Course> Courses { get; set; }
     }
 }
