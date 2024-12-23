@@ -20,13 +20,11 @@
         {
             var  courseList = await _client.GetFromJsonAsync<List<CourseDto>>("course");
             return View(courseList);
-
         }
         public async Task<IActionResult> RemoveCourse(int id)
         {
             await _client.DeleteAsync($"course/{id}");
             return RedirectToAction(nameof(Index));
-
         }
         [HttpGet]
         public async Task<IActionResult> AddCourse()
@@ -39,7 +37,6 @@
         {
             var values = await _client.PostAsJsonAsync("Course", courseDto);
             return RedirectToAction(nameof(Index));
-
         }
         [HttpGet]
         public async Task<IActionResult> UpdateCourse(int id)
@@ -47,8 +44,6 @@
            await CourseCategoryDropDown();
             var value = await _client.GetFromJsonAsync<CourseDto>($"Course/{id}");
             return View(value);
-
-
         }
         [HttpPost]
         public async Task<IActionResult> UpdateCourse(CourseDto courseDto)

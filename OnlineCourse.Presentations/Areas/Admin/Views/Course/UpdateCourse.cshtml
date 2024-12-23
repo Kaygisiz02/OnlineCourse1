@@ -4,25 +4,48 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <form method="post">
+    <!-- Course ID (Hidden) -->
     <input type="hidden" asp-for="CourseId" />
-    <label>Resim Url</label>
-    <input type="text" asp-for="ImageUrl" class="form-control" />
-    <br />
-    <label>Kurs Adı</label>
-    <input type="text" asp-for="CourseName" class="form-control" />
-    <br />
-    <label>Fiyat</label>
-    <input type="text" asp-for="Price" class="form-control" />
-    <br />
-    <label>Kategori</label>
-    <select asp-items="@ViewBag.courseCategory" asp-for="CourseId" class="form-control">
-        <option>Kategori Seçin</option>
-    </select>
-    <br />
-    <label>Ana Sayfada Gösterilsin</label> <input type="checkbox" asp-for="IsShown" class="form-check" />
-    <br />
-    <button class="btn btn-outline-primary">Güncelle</button>
-    <a asp-action="Index" asp-controller="Blog" asp-area="Admin" class="btn btn-secondary">İptal</a>
+
+    <!-- Course Name -->
+    <div class="form-group">
+        <label for="CourseName">Kurs Adı</label>
+        <input type="text" asp-for="CourseName" class="form-control" />
+        <span asp-validation-for="CourseName" class="text-danger"></span>
+    </div>
+
+    <!-- Image URL -->
+    <div class="form-group">
+        <label for="ImageUrl">Resim</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+
+    <!-- Price -->
+    <div class="form-group">
+        <label for="Price">Fiyat</label>
+        <input type="text" asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <!-- Category -->
+    <div class="form-group">
+        <label for="CourseCategoryId">Kategori</label>
+        <select asp-for="CourseCategoryId" class="form-control" asp-items="@ViewBag.CourseCategory">
+            <option value="">Kategori Seçin</option>
+        </select>
+        <span asp-validation-for="CourseCategoryId" class="text-danger"></span>
+    </div>
+
+    <!-- IsShown -->
+    <div class="form-group form-check">
+        <input type="checkbox" asp-for="IsShown" class="form-check-input" />
+        <label class="form-check-label" for="IsShown">Ana Sayfada Gösterilsin</label>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-outline-primary">Güncelle</button>
+    <a asp-action="Index" asp-controller="Course" asp-area="Admin" class="btn btn-secondary">İptal</a>
 </form>
 
 
