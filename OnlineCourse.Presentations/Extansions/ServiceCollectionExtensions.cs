@@ -16,6 +16,7 @@
             services.AddScoped<ISocialMediaService, SocialMediaServices>();
             services.AddScoped<ISubscribeService, SubscribeServices>();
             services.AddScoped<ITestimonialService, TestimonialServices>();
+            services.AddScoped<IUserService, UserService>();
           
         }
     }
