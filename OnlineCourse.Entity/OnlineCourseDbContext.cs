@@ -1,7 +1,6 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-
 namespace OnlineCourse.Entity
 {
     public class OnlineCourseDbContext : DbContext
