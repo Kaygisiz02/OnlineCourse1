@@ -13,7 +13,7 @@ builder.Services.AddDbContext<OnlineCourseDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
 });
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<OnlineCourseDbContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<OnlineCourseDbContext>().AddErrorDescriber<CustomerErrorDescriber>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
