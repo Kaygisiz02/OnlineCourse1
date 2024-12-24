@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineCourse.Busines.Dto
+﻿namespace OnlineCourse.Busines
 {
     public class RoleDto
     {
-        public string RoleName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace OnlineCourse.Presentations
+﻿using OnlineCourse.Busines.Interface;
+
+namespace OnlineCourse.Presentations
 {
     public static class ServiceCollectionExtensions
     {
@@ -17,6 +19,7 @@
             services.AddScoped<ISubscribeService, SubscribeServices>();
             services.AddScoped<ITestimonialService, TestimonialServices>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRoleService, RoleService>();
           
         }
     }

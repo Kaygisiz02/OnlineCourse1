@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-namespace OnlineCourse.Busines
+﻿namespace OnlineCourse.Busines
 {
     public class UserService(UserManager<AppUser> _userManager, SignInManager<AppUser> _signInManager, RoleManager<AppRole> _roleManager) : IUserService
     {
@@ -26,9 +25,19 @@ namespace OnlineCourse.Busines
 
         }
 
-        public Task<bool> AssingRoleAsync(AssingRoleDto _assingRoleDto)
+        public async Task<bool> AssingRoleAsync(List<AssingRoleDto> _assingRoleDto)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<List<AppUser>> GetAllUserAsync()
+        {
+            return await _userManager.Users.ToListAsync();
+        }
+
+        public async Task<AppUser> GetserByIdAsync(int id)
+        {
+           return await _userManager.Users.FirstOrDefaultAsync(x=>x.Id==id);
         }
 
         public async Task<string> LoginAsync(UserLoginDto _userLoginDto)

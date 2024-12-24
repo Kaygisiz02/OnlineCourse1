@@ -19,7 +19,7 @@ namespace OnlineCourse.Presentations.Extansions
             services.AddAutoMapper(typeof(SocialMediaMappingProfile));
             services.AddAutoMapper(typeof(SubscribeMappingProfile));
             services.AddAutoMapper(typeof(TestimonialMappingProfile));
+            services.AddAutoMapper(typeof(RoleMappingProfile));
         }
     }
-
 }
