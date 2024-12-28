@@ -6,8 +6,8 @@
         Task<string> LoginAsync(UserLoginDto userLoginDto); 
         Task<bool> LogoutAsync();
         Task<bool> AddRoleAsync(UserRoleDto userRoleDto );
-        Task<bool> AssingRoleAsync(List<AssingRoleDto> assingRoleDto);
+        Task<bool> AssignRoleAsync(List<AssignRoleDto> assingRoleDto);
         Task<List<AppUser>> GetAllUserAsync();
-        Task<AppUser> GetserByIdAsync(int id);
+        Task<AppUser> GetUserByIdAsync(int id);
     }
 }

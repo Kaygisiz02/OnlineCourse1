@@ -1,5 +1,4 @@
-﻿using OnlineCourse.Repository;
-using OnlineCourse.Repository.Abstract;
+﻿using OnlineCourse.Repository.Abstract;
 
 namespace OnlineCourse.Presentations.Extansions
 {
@@ -19,6 +18,7 @@ namespace OnlineCourse.Presentations.Extansions
             services.AddScoped<ISocialMediaRepository, SocialMediaRepository>();
             services.AddScoped<ISubscribeRepository, SubscribeRepository>();
             services.AddScoped<ITestimonialRepository, TestimonialRepository>();
+            services.AddScoped<IUserService, UserService>();
        }
     }
 }

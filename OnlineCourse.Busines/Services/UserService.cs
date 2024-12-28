@@ -7,25 +7,25 @@
             throw new NotImplementedException();
         }
 
-        public async Task<IdentityResult> AddUserAsync(UserRegisterDto _userRegisterDto)
+        public async Task<IdentityResult> AddUserAsync(UserRegisterDto userRegisterDto)
         {
             var user = new AppUser
             {
-                FirstName = _userRegisterDto.FirstName,
-                LastName = _userRegisterDto.LastName,
-                UserName = _userRegisterDto.UserName,
-                Email = _userRegisterDto.Email,
+                FirstName = userRegisterDto.FirstName,
+                LastName = userRegisterDto.LastName,
+                UserName = userRegisterDto.UserName,
+                Email = userRegisterDto.Email,
 
             };
-            if (_userRegisterDto.Password != _userRegisterDto.ConfirmPassword)
+            if (userRegisterDto.Password != userRegisterDto.ConfirmPassword)
             {
                 return new IdentityResult();
             }
-            return await _userManager.CreateAsync(user, _userRegisterDto.Password);
+            return await _userManager.CreateAsync(user, userRegisterDto.Password);
 
         }
 
-        public async Task<bool> AssingRoleAsync(List<AssingRoleDto> _assingRoleDto)
+        public Task<bool> AssignRoleAsync(List<AssignRoleDto> assingRoleDto)
         {
             throw new NotImplementedException();
         }
@@ -35,7 +35,7 @@
             return await _userManager.Users.ToListAsync();
         }
 
-        public async Task<AppUser> GetserByIdAsync(int id)
+        public async Task<AppUser> GetUserByIdAsync(int id)
         {
            return await _userManager.Users.FirstOrDefaultAsync(x=>x.Id==id);
         }

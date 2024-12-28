@@ -1,6 +1,4 @@
-﻿using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-
-namespace OnlineCourse.API.Controllers
+﻿namespace OnlineCourse.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

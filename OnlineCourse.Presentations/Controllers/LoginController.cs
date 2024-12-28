@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
-
-namespace OnlineCourse.Presentations.Controllers
+﻿namespace OnlineCourse.Presentations.Controllers
 {
-    public class LoginController(UserService _userService) : Controller
+    public class LoginController(IUserService _userService) : Controller
     {
         public IActionResult Sigin()
         {
             return View();
         }
+        [HttpPost]
         public async Task<IActionResult> Sigin(UserLoginDto userLoginDto)
         {
             var userRoole = await _userService.LoginAsync(userLoginDto);

@@ -1,6 +1,6 @@
 ﻿namespace OnlineCourse.Busines
 {
-    public class AssingRoleDto
+    public class AssignRoleDto
     {
         public int RoleId {  get; set; }
         public string RoleName { get; set; }

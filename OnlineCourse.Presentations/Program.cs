@@ -14,6 +14,11 @@ builder.Services.AddDbContext<OnlineCourseDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
 });
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<OnlineCourseDbContext>().AddErrorDescriber<CustomerErrorDescriber>();
+//builder.Services.ConfigureApplicationCookie(cfg =>
+//{
+//    cfg.LoginPath = "/Login/Sigin";
+//    cfg.LogoutPath = "/Login/Logout";
+//});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

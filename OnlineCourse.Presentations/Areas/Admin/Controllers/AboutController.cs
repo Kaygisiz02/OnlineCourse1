@@ -1,12 +1,13 @@
-﻿
-
+﻿using Microsoft.AspNetCore.Authorization;
 namespace OnlineCourse.Presentations.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
     [Route("[area]/[controller]/[action]/{id?}")]
     public class AboutController() : Controller
     {
         private readonly HttpClient _client = HttpClientInstance.CreateClient();
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var value = await _client.GetFromJsonAsync<List<AboutDto>>("abouts");
